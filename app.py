@@ -1,4 +1,4 @@
-from flask import Flask,url_for,render_template,request,make_response
+from flask import Flask,url_for,render_template,request,make_response,redirect
 from werkzeug import secure_filename 
 app = Flask(__name__)
 
@@ -36,18 +36,33 @@ def upload_file():
     if request.method == 'POST':
         f = request.files['the_file']
         f.save('/var/www/uploads/' + secure_filename(f.filename))
+        
 # 쿠키 읽기
 @app.route('/a')
 def index():
     username = request.cookies.get('username')
     # use cookies.get(key) instead of cookies[key] to not get a
     # KeyError if the cookie is missing.
+
 # 쿠키 저장
 @app.route('/b')
 def index():
     resp = make_response(render_template(...))
     resp.set_cookie('username', 'the username')
     return resp
+#리다이렉트
+@app.route('/redirect')
+def redirect():
+    return redirect(url_for('login'))
+
+
+#에러페이지 변경하기
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('page_not_found.html'), 404
+
+
+
 
 
 
