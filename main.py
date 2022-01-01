@@ -2,7 +2,6 @@ from typing import Optional
 from fastapi import FastAPI,Query
 from pydantic import BaseModel
 app = FastAPI()
-
 class Item(BaseModel):
     name:str
     price:float
@@ -17,6 +16,7 @@ def read_item(item_id: int, q:Optional[str] = None):
     return {"item_id":item_id,"q":q}
 @app.put("/items/{item_id}")
 def update_item(item_id:int, item:Item):
+    result = item_id  if item_id else item
     return {
         "item_name":item.name,
         "item_id":item_id
