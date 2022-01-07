@@ -1,5 +1,5 @@
 from typing import Optional
-from fastapi import FastAPI,Query
+from test import FastAPI,Query
 from pydantic import BaseModel
 app = FastAPI()
 class Item(BaseModel):
