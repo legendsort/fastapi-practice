@@ -1,15 +1,20 @@
+## Run Server
 ```
 pip install fastapi
 pip install uvicorn[standard]
-uvicorn main:app --reload # 실행
+uvicorn main:app --reload 
 ```
-- **pyenv, python 버전 관련** : 프로젝트 파이썬 버전 관련
+- **pyenv, python version** : relate with python, venv, pyenv
  
-   [소스폴더](./pyenv)
-- **문법** : FastAPI,Python 문법
+   [Source](./pyenv)
+- **Grammer** : FastAPI,Python grammer
  
-   [소스폴더](./gramer)
-- **기타** : typing, pydantic, query, security
+   [Source](./gramer)
+- **Other** : typing, pydantic, query, security
 
-   [소스폴더](./typing,pydantic,query,security)
+   [Source](./typing,pydantic,query,security)
+- **pytest** : pytest document
+
+ [Source](./pytest)
+
 
